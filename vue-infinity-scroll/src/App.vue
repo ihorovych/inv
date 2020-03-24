@@ -2,7 +2,7 @@
     <div id="app">
         <h1>Infinity scroll</h1>
         <hr>
-        <Infinity/>
+        <Infinity v-bind:items="items"/>
     </div>
 </template>
 
@@ -11,6 +11,11 @@
 
   export default {
     name: 'App',
+    data() {
+      return {
+        items: 'item '.repeat(100000).trim().split(' ').map((e, i) => e + i),
+      };
+    },
     components: {
       Infinity: InfinityTest,
     },
