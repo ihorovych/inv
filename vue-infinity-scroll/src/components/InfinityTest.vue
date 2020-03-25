@@ -1,16 +1,17 @@
 <template>
     <div class="wrap">
-        <div
+        <v-list
                 class="container"
                 ref="container"
-                @scroll="handleScroll"
+                id="container"
         >
-            <div
+            <v-list-item
+                    v-scroll:#container="handleScroll"
                     class="item"
                     v-for="item of currentItems"
             >{{item}}
-            </div>
-        </div>
+            </v-list-item>
+        </v-list>
         <div class="scroll-wrap" ref="scroll">
             <div
                     v-bind:style="{top: scrollPinPosition + 'px'}"
@@ -56,6 +57,7 @@
           offsetHeight,
           offsetTop,
         } = e.target;
+
         // console.log(this.$refs.scroll.clientHeight);
         // console.log('scrollHeight', scrollHeight);
         // console.log('scrollTop', scrollTop);
@@ -99,36 +101,6 @@
   };
 </script>
 
-<style scoped>
-    .wrap {
-        position: relative;
-        height: 100px;
-        overflow: hidden;
-    }
-
-    .container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-flow: column nowrap;
-        /*padding-right: 20px;*/
-        overflow-y: scroll;
-    }
-
-    .scroll-wrap {
-        position: absolute;
-        right: 30px;
-        top: 0;
-        height: 100%;
-        width: 20px;
-        background-color: #ccc;
-        border: 1px solid #aaa;
-    }
-
-    .scroll-pin {
-        width: 100%;
-        background: #aaa;
-        position: absolute;
-        height: 10%;
-    }
+<style scoped lang="scss">
+    @import "./s";
 </style>
