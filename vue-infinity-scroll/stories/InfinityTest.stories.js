@@ -1,5 +1,9 @@
 import Vue from 'vue';
+import vuetify from 'vuetify';
+
 import InfinityTest from '../src/components/InfinityTest.vue';
+
+Vue.use(vuetify);
 
 export default {
   title: 'InfinityTest',
